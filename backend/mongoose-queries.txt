@@ -9,3 +9,18 @@ router.post('/saveUser', async (req, res) => {
     res.status(500).send(e)
   }
 })
+
+*******************************************
+*** To Find User in Database ***
+
+router.get('/getStudent:studentID', async (req, res) => {
+
+  try {
+    const studentID = req.params.studentID
+    const user = await User.find({ studentID: studentID })
+    res.send(user)
+  } catch (e) {
+    res.send(500).send(e)
+  }
+
+})
